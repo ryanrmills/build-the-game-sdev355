@@ -32,32 +32,55 @@ const updateDisplay = () => {
 document.getElementById("click-btn").addEventListener("click", () => {
   score += pointsPerClick;
   updateDisplay();
+  playSound();
 });
 
+const playSound = () => {
+  let audio = new Audio("quack.mp3");
+  audio.play();
+};
+
 const renderUpgrades = () => {
+  const upgradeContainer = document.getElementById("upgrades");
+  upgradeContainer.innerHTML = ""; // Clear existing to prevent duplicates
+
   upgrades.forEach((upgrade) => {
+    // Create Card
     const upgradeDiv = document.createElement("div");
-    const buyButton = document.createElement("button");
+    upgradeDiv.className = "upgrade-card";
 
-    buyButton.textContent = "Buy";
-    buyButton.setAttribute("onclick", `buyUpgrades(${upgrade.id})`);
-    buyButton.setAttribute("id", `upgrade-${upgrade.id}`);
-
-    upgradeDiv.setAttribute("id", upgrade.id);
+    // Create Info Section (Left side)
+    const infoDiv = document.createElement("div");
+    infoDiv.className = "upgrade-info";
 
     const name = document.createElement("p");
-    name.textContent = `${upgrade.name} Cost: ${upgrade.cost} Bonus: ${upgrade.bonus}`;
+    name.className = "upgrade-name";
+    name.textContent = upgrade.name;
 
-    upgradeDiv.appendChild(name);
+    const stats = document.createElement("p");
+    stats.className = "upgrade-stats";
+    stats.textContent = `Cost: ${upgrade.cost} | Bonus: +${upgrade.bonus}`;
+
+    infoDiv.appendChild(name);
+    infoDiv.appendChild(stats);
+
+    // Create Button (Right side)
+    const buyButton = document.createElement("button");
+    buyButton.textContent = "BUY";
+    buyButton.className = "buy-btn";
+    buyButton.id = `upgrade-${upgrade.id}`;
+    buyButton.onclick = () => buyUpgrades(upgrade.id);
+
+    // Assemble
+    upgradeDiv.appendChild(infoDiv);
     upgradeDiv.appendChild(buyButton);
-
-    document.getElementById("upgrades").appendChild(upgradeDiv);
+    upgradeContainer.appendChild(upgradeDiv);
   });
 };
 
 renderUpgrades();
 
-function buyUpgrades(id) {
+const buyUpgrades = (id) => {
   for (let i = 0; i < upgrades.length; i++) {
     if (upgrades[i].id === id) {
       if (score >= upgrades[i].cost) {
@@ -68,7 +91,7 @@ function buyUpgrades(id) {
       }
     }
   }
-}
+};
 
 const checkCost = () => {
   upgrades.forEach((upgrade) => {

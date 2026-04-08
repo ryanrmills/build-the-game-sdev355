@@ -1,0 +1,132 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fffde7;
+  color: #5d4037;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+h1 {
+  color: #fbc02d;
+  text-shadow: 2px 2px 0px #fff;
+}
+
+#score-display,
+#rate-display {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+#click-btn {
+  background-color: #ffeb3b;
+  border: 4px solid #fbc02d;
+  border-radius: 12px;
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #f9a825;
+  margin: 20px 0;
+}
+
+#click-btn:hover {
+  background-color: #fff176;
+}
+
+#click-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #f9a825;
+}
+
+#upgrades {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  margin-top: 20px;
+}
+
+#upgrades button {
+  background-color: #fff9c4;
+  border: 2px solid #fff176;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+#upgrades button:hover {
+  background-color: #fff176;
+}
+
+#upgrades {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.upgrade-card {
+  background-color: #fffde7;
+  border: 2px solid #fbc02d;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 4px 4px 0px #fff59d;
+  transition: all 0.2s ease;
+}
+
+.upgrade-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.upgrade-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.upgrade-stats {
+  font-size: 0.85rem;
+  color: #795548;
+  margin: 0;
+}
+
+.buy-btn {
+  background-color: #fbc02d;
+  color: #5d4037;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #f9a825;
+}
+
+.buy-btn:hover:not(:disabled) {
+  background-color: #fdd835;
+  transform: translateY(-1px);
+}
+
+.buy-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #f9a825;
+}
+
+        .buy-btn:disabled {
+  background-color: #e0e0e0;
+  box-shadow: 0 4px 0 #bdbdbd;
+  color: #9e9e9e;
+  cursor: not-allowed;
+}
