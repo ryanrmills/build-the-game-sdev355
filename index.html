@@ -3,16 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Duck Clicker Splash</title>
+    <link rel="stylesheet" href="styles.css" />
     <script src="game.js" defer></script>
   </head>
   <body>
-    <h1>The Name Game</h1>
-    <img src="assets/duck.png"/>
-    <p id="score-display">Score: 0</p>
-    <p id="rate-display">Points per click: 1</p>
-    <button id="click-btn">Click</button>
-    <h1>Upgrades</h1>
-    <div id="upgrades"></div>
+    <main class="game-shell">
+      <header class="hero">
+        <h1>Duck Clicker Splash</h1>
+        <p>Tap the duck, stack points, and buy silly power-ups.</p>
+      </header>
+
+      <section class="play-panel">
+        <div class="stats-panel">
+          <p id="score-display">Score: 0</p>
+          <p id="rate-display">Points per click: 1</p>
+        </div>
+
+        <div class="duck-arena">
+          <button id="click-btn" class="duck-button" aria-label="Click duck">
+            <span class="click-ring" aria-hidden="true"></span>
+            <img src="assets/babyduck.png" alt="Baby duck" />
+          </button>
+          <div id="duck-particles" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="upgrades-panel">
+        <h2>Upgrades</h2>
+        <div id="upgrades"></div>
+      </section>
+    </main>
   </body>
 </html>
